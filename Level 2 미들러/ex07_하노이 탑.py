@@ -4,6 +4,7 @@ def solution(n):
     answer = []
 
     def hanoi(n, source, target, temp):
+        # print(f'hanoi({n}, {source}, {target}, {temp})')
         if n == 1:
             answer.append([source, target])
             return
@@ -17,4 +18,6 @@ def solution(n):
 
 if __name__ == "__main__":
     print(solution(2))  # [[1, 2], [1, 3], [2, 3]]
-    print(solution(3))
+    print(solution(3))  # [[1, 3], [1, 2], [3, 2], [1, 3], [2, 1], [2, 3], [1, 3]]
+    print(solution(4))  # [[1, 2], [1, 3], [2, 3], [1, 2], [3, 1], [3, 2], [1, 2], [1, 3], [2, 3], [2, 1], [3, 1], [2, 3], [1, 2], [1, 3], [2, 3]]
+
