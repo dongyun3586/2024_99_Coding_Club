@@ -1,9 +1,8 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/159994
-
 from collections import deque
 
+
 def solution(cards1, cards2, goal):
-    answer = True
     cards1 = deque(cards1)
     cards2 = deque(cards2)
 
@@ -13,10 +12,10 @@ def solution(cards1, cards2, goal):
         elif cards2 and cards2[0] == word:
             cards2.popleft()
         else:
-            answer = False
-            break
+            return 'No'
 
-    return 'Yes' if answer else 'No'
+    return 'Yes'
+
 
 
 if __name__ == "__main__":
