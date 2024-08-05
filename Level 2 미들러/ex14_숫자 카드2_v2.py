@@ -9,9 +9,11 @@ card2 = list(input().split())
 
 D = defaultdict(int)
 
+# 숫자카드1을 딕셔너리로 변환: 각 숫자를 key로 하여 등장 횟수를 value로 저장
 for i in card1:
     D[i] += 1
 
+# 숫자카드2의 숫자가 숫자카드1에 몇 번 등장하는지 딕셔너리로 확인
 for i in card2:
     print(D[i], end=' ')
 

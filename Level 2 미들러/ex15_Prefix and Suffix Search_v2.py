@@ -9,7 +9,7 @@ class WordFilter:
         self.prefix_map = defaultdict(list)
         self.suffix_map = defaultdict(list)
 
-        # 각 단어에 대해 모든 가능한 접두사와 접미사를 추출하여 prefix_map과 suffix_map에 해당 단어이 index와 함께 저장
+        # 각 단어에 대해 모든 가능한 접두사와 접미사를 추출하여 prefix_map과 suffix_map에 해당 단어의 index와 함께 저장
         for index, word in enumerate(words):
             # 접두사 맵 구성: {"a": [0], "ap": [0], "app": [0], "appl": [0], "apple": [0]}
             for i in range(1, len(word) + 1):

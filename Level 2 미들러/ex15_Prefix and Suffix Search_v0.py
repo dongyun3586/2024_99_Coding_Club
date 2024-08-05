@@ -10,7 +10,6 @@ class Node:
 
 
 class WordFilter:
-
     def __init__(self, words: List[str]):
         self.head = Node(None)
 

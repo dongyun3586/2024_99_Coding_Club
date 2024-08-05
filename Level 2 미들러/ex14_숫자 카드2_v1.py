@@ -16,7 +16,7 @@ for num in card2:
         idx += 1
     print(count, end=' ')
 
-
+'''시간 초과'''
 
 """
 # 예제 입력1

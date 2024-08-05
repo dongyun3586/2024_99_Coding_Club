@@ -4,9 +4,9 @@ def solution(citations):
     citations.sort(reverse=True)    # 가장 많이 인용된 논문부터 차례로 비교할 수 있도록 준비
     answer = 0
     for i in range(len(citations)):
-        # h번 이상 인용된 논문이 h편 이상인지 확인
-        if i < citations[i]:    # 현재 논문이 i번 i+1번 이상 인용되었는가?
-            answer += 1         # 조건을 만족하면 answer + 1
+        # 논문의 인용 횟수가 i + 1보다 크거나 같은지를 확인
+        if i < citations[i]:    # 현재 논문이 i+1번 이상 인용되었는가?
+            answer += 1         # 조건을 만족하면 h값 증가
     return answer
 
 
