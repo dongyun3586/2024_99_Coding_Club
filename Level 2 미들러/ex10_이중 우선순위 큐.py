@@ -28,6 +28,7 @@ def solution(operations):
                     value_dict[num] -= 1
                     break
 
+
     while max_heap and value_dict[-max_heap[0]] == 0:
         heappop(max_heap)
     while min_heap and value_dict[min_heap[0]] == 0:
