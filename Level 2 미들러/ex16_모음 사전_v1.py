@@ -8,14 +8,13 @@ def solution(word):
     def dfs(current_word):      # 현재 단어를 인수로 받아 재귀적으로 단어를 생성
         nonlocal index, found   # index와 found 변수가 함수 외부에 정의된 것을 사용하겠다는 것을 명시함.
 
-        if found:  # 목표 단어를 찾으면 return
+        # 단어의 최대 5를 초과하거나 목표 단어를 찾았으면 return
+        if len(current_word) > 5 or found:
             return
 
+        print(current_word)
         if current_word == word:    # 현재 단어가 목표 단어이면 found를 True로 설정하고 return
             found = True
-            return
-
-        if len(current_word) > 5:   # 단어의 최대 5를 초과하면 return
             return
 
         index += 1  # 새로운 단어가 생성될 때마다 index를 증가시켜 사전 순서에서의 위치를 추적
@@ -30,6 +29,6 @@ def solution(word):
 
 if __name__ == "__main__":
     print(solution("AAAAE"))    # 6
-    print(solution("AAAE"))     # 10
-    print(solution("I"))        # 1563
-    print(solution("IEO"))      # 1189
+    # print(solution("AAAE"))     # 10
+    # print(solution("I"))        # 1563
+    # print(solution("IEO"))      # 1189
