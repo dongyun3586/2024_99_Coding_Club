@@ -9,8 +9,8 @@ def solution(players, callings):
         current_pos = player_pos[name]  # 해설진이 부른 선수의 이름으로 선수의 배열 index 찾기
 
         # 해당 선수와 앞 선수의 위치를 교환
-        if current_pos > 0:  # 현재 1등이 아닌 경우에만
-            prev_player = players[current_pos - 1]  # 앞 선수의 이름
+        if current_pos > 0:  # 현재 1등이 아닌 경우에만: 1등이 불리지 않는다면 필요없는 if문
+            prev_player = players[current_pos - 1]  # 앞 선수의 이름 저장
 
             # 배열에서 두 선수의 위치를 교환(이름 교환)
             players[current_pos], players[current_pos - 1] = players[current_pos - 1], players[current_pos]
