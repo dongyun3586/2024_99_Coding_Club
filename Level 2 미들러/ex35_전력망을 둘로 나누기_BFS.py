@@ -23,7 +23,7 @@ def bfs_count(graph, v, n):
 def solution(n, wires):
     min_difference = float('inf')  # 최소 차이를 아주 큰 수로 초기화
 
-    # 모든 간선을 하나씩 끊어보기
+    # 모든 간선을 하나씩 끊어 보기
     for i in range(len(wires)):
         # 그래프 생성
         G = [[] for _ in range(n + 1)]  # 정점이 1번부터 시작하기 때문에 n + 1개 생성

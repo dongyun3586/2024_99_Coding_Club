@@ -14,9 +14,9 @@ def solution(numbers, target):
             if current_sum == target:
                 answer += 1
         else:
-            # 현재 인덱스에 있는 숫자를 더하는 경우를 계산하여 큐에 추가
+            # 현재 인덱스에 있는 숫자를 더하는 경우
             queue.append((current_sum + numbers[index], index + 1))
-            # 현재 인덱스테 있는 숫자를 빼는 경우를 계산하여 큐에 추가
+            # 현재 인덱스에 있는 숫자를 빼는 경우
             queue.append((current_sum - numbers[index], index + 1))
 
     return answer

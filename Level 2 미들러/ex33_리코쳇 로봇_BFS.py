@@ -8,7 +8,7 @@ def solution(board):
     # 각각 로봇의 시작 위치와 목표 지점의 위치를 저장할 변수
     start, goal = None, None
 
-    # 보드의 모든 칸을 탐색하면서 시작지점(R)과 목표지점(G)의 위치 찾기
+    # 보드의 모든 칸을 탐색하면서 시작 지점(R)과 목표지점(G)의 위치 찾기
     for i in range(n):
         for j in range(m):
             if board[i][j] == 'R':
