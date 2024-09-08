@@ -6,7 +6,7 @@ def solution(word):
     found = False   # 목표 단어를 찾았는지 여부를 나타내는 플래그
 
     def dfs(current_word):      # 현재 단어를 인수로 받아 재귀적으로 단어를 생성
-        nonlocal index, found   # index와 found 변수가 함수 외부에 정의된 것을 사용하겠다는 것을 명시함.
+        nonlocal index, found   # index와 found 변수가 함수 외부에 정의된 것을 명시함.
 
         # 단어의 최대 5를 초과하거나 목표 단어를 찾았으면 return
         if len(current_word) > 5 or found:
@@ -28,7 +28,9 @@ def solution(word):
 
 
 if __name__ == "__main__":
-    print(solution("AAAAE"))    # 6
+    # print(solution("AAAAE"))    # 6
+    print(solution('E'))          # 782
+    print(solution('I'))          # (781 * 2) + 1 = 1563
     # print(solution("AAAE"))     # 10
     # print(solution("I"))        # 1563
     # print(solution("IEO"))      # 1189
