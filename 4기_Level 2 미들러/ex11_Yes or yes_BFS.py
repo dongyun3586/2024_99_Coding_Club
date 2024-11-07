@@ -1,5 +1,7 @@
 ### 엄청 오래 걸림 ###
 from collections import deque
+import sys
+input = sys.stdin.readline
 
 # 입력 받기
 n, m = map(int, input().split())  # 정점 수, 간선 수
@@ -29,7 +31,7 @@ def bfs(graph, fan_club_nodes, start):
             return False
 
         for w in graph[v]:
-            if w in fan_club_nodes and not visited[w]:
+            if w not in fan_club_nodes and not visited[w]:
                 visited[w] = True
                 queue.append(w)
     return True
