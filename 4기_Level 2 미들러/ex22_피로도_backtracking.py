@@ -1,26 +1,25 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/87946?language=python3
 
 def solution(k, dungeons):
-    max_dungeons = 0
+    max_count = 0
     visited = [False] * len(dungeons)
 
-    def explore(current_fatigue, count):
-        nonlocal max_dungeons
-        # 최대 던전 수 갱신
-        max_dungeons = max(max_dungeons, count)
+    def dfs(current_hp, count):
+        nonlocal max_count
+        max_count = max(max_count, count)   # 최대 던전 수 갱신
 
         # 던전 탐험
         for i in range(len(dungeons)):
             if not visited[i]:  # 아직 방문하지 않은 던전
-                required, cost = dungeons[i]
-                if current_fatigue >= required:  # 최소 필요 피로도를 만족할 때
+                required_hp, used_hp = dungeons[i]  # [입장 hp, 소모 hp]
+                if current_hp >= required_hp:  # 최소 필요 피로도를 만족할 때
                     visited[i] = True
-                    explore(current_fatigue - cost, count + 1)
+                    dfs(current_hp - used_hp, count + 1)
                     visited[i] = False  # 탐험 종료 후 상태 복원
 
     # 탐험 시작
-    explore(k, 0)
-    return max_dungeons
+    dfs(k, 0)
+    return max_count
 
 
 if __name__ == '__main__':

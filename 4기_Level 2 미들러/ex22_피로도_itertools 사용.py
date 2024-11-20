@@ -2,27 +2,27 @@
 from itertools import permutations
 
 
-def solution(k, dungeons):
-    max_dungeons = 0
+def solution(k, dungeons):  # 유저의 현재 피로도, 던전의 피로도 리스트
+    max_count = 0           # 최대 탐험 개수 저장 변수
 
     # 모든 던전 순서를 생성
     for perm in permutations(dungeons, len(dungeons)):
-        current_fatigue = k
-        dungeon_count = 0
+        current_hp = k
+        current_count = 0
 
-        # 현재 순서대로 던전 탐험 시도
+        # 현재 던전 순서대로 탐험 시도
         for dungeon in perm:
-            required, cost = dungeon
-            if current_fatigue >= required:
-                current_fatigue -= cost
-                dungeon_count += 1
+            required_hp, used_hp = dungeon    # [입장 hp, 소모 hp]
+            if current_hp >= required_hp:
+                current_hp -= used_hp
+                current_count += 1
             else:
                 break  # 현재 던전을 탐험할 수 없으면 종료
 
         # 최대 탐험 수 갱신
-        max_dungeons = max(max_dungeons, dungeon_count)
+        max_count = max(max_count, current_count)
 
-    return max_dungeons
+    return max_count
 
 
 if __name__ == '__main__':
