@@ -6,8 +6,8 @@ def solution(n):
 
     def is_safe(row, col):
         # 같은 열에 Queen이 있는지 확인: 현재 row보다 위쪽에 있는 행만 검사
-        for i in range(row):
-            if board[i][col] == 1:
+        for prev_row in range(row):
+            if board[prev_row][col] == 1:
                 return False
 
         # 왼쪽 또는 오른쪽 대각선에 Queen이 있는지 확인: 왼쪽 위 대각선과 오른쪽 위 대각선을 각각 확인
@@ -24,15 +24,14 @@ def solution(n):
         # 모든 퀸이 성공적으로 배치되면 True 반환
         if row == n:
             answer += 1
-            return True
+            return
 
         # 현재 행에서 가능한 모든 열을 시도하며, is_safe 함수를 통해 해당 위치가 안전한지 확인
-        for i in range(n):
-            if is_safe(row, i):
-                board[row][i] = 1   # Queen 배치
-                dfs(row + 1)        # 다음 행에 대해 재귀호출
-                board[row][i] = 0   # 백트래킹: 모든 배치를 찾기 위해 배치된 퀸을 제거하여 다른 가능한 배치를 탐색
-        return False
+        for col in range(n):
+            if is_safe(row, col):
+                board[row][col] = 1     # Queen 배치
+                dfs(row + 1)            # 다음 행에 대해 재귀호출
+                board[row][col] = 0     # 백트래킹: 모든 배치를 찾기 위해 배치된 퀸을 제거하여 다른 가능한 배치를 탐색
 
     dfs(0)      # 첫 번째 행부터 탐색 시작
     return answer
@@ -40,3 +39,4 @@ def solution(n):
 
 if __name__ == "__main__":
     print(solution(4))  # 2
+    print(solution(8))  # 92
